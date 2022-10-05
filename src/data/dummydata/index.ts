@@ -24,7 +24,7 @@ import {ReactComponent as Reports} from '../svgs/reports.svg'
 
 //==============================Imports for sidebar 'settings'======================================//
 import {ReactComponent as Preferences} from '../svgs/preferences.svg'
-import {ReactComponent as FeesAndPricing} from '../svgs/fees&pricing..svg'
+import {ReactComponent as FeesAndPricing} from '../svgs/fees&pricing.svg'
 import {ReactComponent as AuditLogs} from '../svgs/auditlogs.svg'
 //================================================================================================//
 
@@ -34,32 +34,32 @@ export const settings={
     links: [
         {
             icons: Preferences,
-            name: 'preferences'
+            name: 'Preferences'
     
         },
         {
             icons: FeesAndPricing,
-            name: 'fees and pricing'
+            name: 'Fees And Pricing'
     
         },
         {
             icons: AuditLogs,
-            name: 'audit logs'
+            name: 'Audit Logs'
     
         },
     ]
 }
 export const businesses={
-    title:'businesses',
+    title:'Businesses',
     links:[
         {
             icons: Organization,
-            name: 'organization'
+            name: 'Organization'
     
         },
         {
             icons: LoanProducts,
-            name: 'loan products'
+            name: 'Loan Products'
     
         },
         {
@@ -69,32 +69,32 @@ export const businesses={
         },
         {
             icons: FeesAndCharge,
-            name: 'fees and Charges'
+            name: 'Fees And Charges'
     
         },
         {
             icons: Transactions,
-            name: 'transactions'
+            name: 'Transactions'
     
         },
         {
             icons: Services,
-            name: 'services'
+            name: 'Services'
     
         },
         {
             icons: ServiceAccount,
-            name: 'service account'
+            name: 'Service Account'
     
         },
         {
             icons: Settlements,
-            name: 'settlements'
+            name: 'Settlements'
     
         },
         {
             icons: Reports,
-            name: 'reports'
+            name: 'Reports'
     
         }
     ]
@@ -105,44 +105,44 @@ export const businesses={
 export const customers = {
 title: 'customers',
 links:[
-    {
+    {   id:'active',
         icons: Users,
-        name: 'users'
+        name: 'Users',
 
     },
     {
         icons: Guarantors,
-        name: 'guarantors'
+        name: 'Guarantors'
 
     },
     {
         icons: Loans,
-        name: 'loans'
+        name: 'Loans'
 
     },
     {
         icons: DecisionModels,
-        name: 'decision models'
+        name: 'Decision Models'
 
     },
     {
         icons: Savings,
-        name: 'savings'
+        name: 'Savings'
 
     },
     {
         icons: LoanRequest,
-        name: 'loan request'
+        name: 'Loan Request'
 
     },
     {
         icons: Whitelist,
-        name: 'whitelist'
+        name: 'Whitelist'
 
     },
     {
         icons: Karma,
-        name: 'karma'
+        name: 'Karma'
 
     }
 ]

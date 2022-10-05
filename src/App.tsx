@@ -1,21 +1,28 @@
 import React from 'react';
 import {Dashboard,Login,User,UserDetails} from './pages'
+import {Navbar} from './components'
 import {Route,BrowserRouter as Router, Routes} from 'react-router-dom'
+import './data/font/AvenirNextLTPro-Bold.otf'
+import './data/font/AvenirNextLTPro-It.otf'
+import './data/font/AvenirNextLTPro-Regular.otf'
+import './App.scss'
+
+
+
 
 
 const App = () => {
   return (
     <div>
       <Router>
-
        <Routes>
-         <Route path='/login' element={<Login/>}/>
+         <Route path='/' element={<Login/>}/>
        </Routes>
 
           <Routes>
-            <Route path='/dashboard' element={<Dashboard/>}>
-              <Route path='/user' element={<User/>}/>
-              <Route path='/user:id' element={<UserDetails/>}/>    
+            <Route path='/dashboard/user' element={<Navbar/>}>
+              <Route index element={<Dashboard/>}></Route>
+              <Route path='/dashboard/user:id' element={<UserDetails/>}></Route>    
             </Route>
           </Routes>
 

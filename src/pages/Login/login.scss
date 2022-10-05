@@ -1,0 +1,95 @@
+        @font-face {
+            font-family: "Avenir";
+            src: local("Avenir"), url("../../data/font/AvenirNextLTPro-Regular.otf") format("opentype");
+        }
+        
+        @font-face {
+            font-family: "AvenirLight";
+            src: local("AvenirLight"), url("../../data/font/AvenirNextLTPro-It.otf") format("opentype");
+        }
+        
+        @font-face {
+            font-family: "AvenirBold";
+            src: local("AvenirBold"), url("../../data/font/AvenirNextLTPro-Bold.otf") format("opentype");
+        }
+        
+        .login-page {
+            font-family: 'Avenir';
+            width: 90vw;
+            margin-left: 5vw;
+            nav {
+                margin: 5rem 0 3rem 0rem;
+            }
+        }
+        
+        .login-content {
+            margin-top: 6rem;
+            display: flex;
+            gap: 5rem;
+        }
+        
+        .login-img {
+            width: 40rem;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .login-typography {
+            h1 {
+                font-family: 'AvenirBold';
+                font-weight: 700;
+                font-size: 1.7rem;
+                color: rgba(33, 63, 125, 1);
+                margin-bottom: .6rem;
+            }
+            h5 {
+                color: rgba(84, 95, 125, .9);
+                font-size: 1rem;
+                word-spacing: 110%;
+                font-weight: lighter;
+                margin-bottom: 3rem;
+            }
+        }
+        
+        dl {
+            input {
+                display: block;
+                width: 23rem;
+                padding: .7rem;
+                margin-top: 1.5rem;
+                border: 1.5px solid rgba(84, 95, 125, 0.15);
+                border-radius: .3rem;
+            }
+            input::placeholder {
+                color: rgba(84, 95, 125, .6);
+            }
+        }
+        
+        button {
+            border: none;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .forgot-password {
+            color: rgba(57, 205, 204, 1);
+            background-color: #fff;
+            font-size: 70%;
+            word-spacing: .15rem;
+            margin: 1.2rem 0;
+        }
+        
+        .login-btn {
+            color: #fff;
+            background-color: rgba(57, 205, 204, 1);
+            padding: .7rem 10.3rem;
+            border-radius: .3rem;
+            margin-top: 2rem;
+        }
+        
+        input:focus,
+        buttoon:focus {
+            outline: none;
+        }
