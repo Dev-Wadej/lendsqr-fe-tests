@@ -1,0 +1,91 @@
+    .form-dropdown {
+        position: absolute;
+        top: 3.8rem;
+        width: 17rem;
+        background: #FFFFFF;
+        border: 1px solid rgba(84, 95, 125, 0.14);
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: .4rem;
+        color: rgba(84, 95, 125, 1);
+        font-family: 'Work Sans', sans-serif;
+        font-size: .87rem;
+        font-weight: 500;
+        padding-top: 1.5rem;
+        padding-left: 1rem;
+        padding-bottom: 1.7rem;
+        z-index: 2000;
+        div {
+            margin-bottom: 1rem;
+            label,
+            input,
+            select {
+                display: block;
+            }
+            input,
+            select {
+                border: 1px solid #d6e1f1;
+                border-radius: .4rem;
+                width: 14rem;
+                margin-top: .4rem;
+                padding: .5rem;
+                cursor: pointer;
+                &::placeholder {
+                    color: #545F7D;
+                    opacity: 0.7;
+                    font-size: .77rem;
+                    padding-left: .6rem;
+                }
+            }
+        }
+    }
+    
+    select:focus {
+        outline: none;
+    }
+    
+     ::-webkit-datetime-edit-fields-wrapper {
+        color: #545F7D;
+        opacity: .7;
+    }
+    
+     ::-webkit-datetime-edit-text {
+        color: #545F7D;
+        opacity: .7;
+    }
+    
+     ::-webkit-datetime-edit-month-field {
+        color: #545F7D;
+        opacity: .7;
+    }
+    
+     ::-webkit-datetime-edit-day-field {
+        color: #545F7D;
+        opacity: .7;
+    }
+    
+     ::-webkit-datetime-edit-year-field {
+        color: #545F7D;
+        opacity: .7;
+    }
+    
+    .form-btns {
+        display: flex;
+        gap: 1rem;
+        button {
+            display: inline-block;
+            font-family: 'Work Sans', sans-serif;
+        }
+        button[type='submit'] {
+            background: #39CDCC;
+            border: 1px solid #39CDCC;
+            border-radius: .4rem;
+            padding: .5rem 1.8rem;
+            color: #fff;
+        }
+        button[type='reset'] {
+            border: 1px solid #545F7D;
+            border-radius: 8px;
+            color: rgba(84, 95, 125, 1);
+            padding: .5rem 1.8rem;
+        }
+    }

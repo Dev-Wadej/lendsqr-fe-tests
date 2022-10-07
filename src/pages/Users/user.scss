@@ -1,0 +1,176 @@
+.all-users {
+    @media only screen and (min-width: 1800px) {
+        & {
+            padding-top: 8rem;
+            max-width: 100vw;
+            display: grid;
+            place-content: center;
+        }
+    }
+    margin-left: 20vw;
+    width: 80vw;
+    font-family: 'Work Sans',
+    sans-serif;
+    background-color: #FBFBFB;
+    padding: 5rem;
+    h2 {
+        font-weight: 500;
+        color: rgba(33, 63, 125, 1);
+        font-size: 1.6rem;
+        padding: 2rem 0;
+        @media only screen and (max-width: 1400px) {
+            & {
+                font-size: 1.4rem;
+                padding: 1.7rem 0;
+            }
+        }
+        @media only screen and (max-width: 1000px) {
+            & {
+                padding: 1.2rem 0;
+            }
+        }
+    }
+    @media only screen and (max-width: 1400px) {
+        & {
+            padding: 5rem 3rem;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        & {
+            padding: 5rem 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        & {
+            width: 100vw;
+            margin-left: 0;
+        }
+    }
+}
+
+.users-box {
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 1400px) {
+        & {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+    }
+    li {
+        width: 15rem;
+        background-color: #fff;
+        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+        border-radius: .4rem;
+        padding: .5rem .6rem 1.7rem 1.5rem;
+        @media only screen and (max-width: 1400px) {
+            & {
+                width: 13rem;
+                padding: .35rem .45rem 1.5rem 1.3rem;
+            }
+        }
+        span {
+            display: block;
+            margin-top: .7rem;
+        }
+    }
+}
+
+.users-box-title {
+    color: rgba(84, 95, 125, 1);
+    font-size: .9rem;
+    @media only screen and (max-width: 1400px) {
+        & {
+            font-size: .8rem;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        & {
+            font-size: .8rem;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        & {
+            font-size: .7rem;
+        }
+    }
+}
+
+.users-box-amount {
+    color: rgba(33, 63, 125, 1);
+    font-weight: 600;
+    font-size: 1.5rem;
+    @media only screen and (max-width: 1400px) {
+        & {
+            font-size: 1.3rem;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        & {
+            font-size: 1.1rem;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        & {
+            font-size: 1rem;
+        }
+    }
+}
+
+.main-dashboard {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(9rem, 1fr));
+    color: rgba(84, 95, 125, 1);
+    font-size: .76rem;
+    gap: 1rem;
+    background-color: #fff;
+    padding: .88rem;
+    font-weight: 600;
+    position: relative;
+    @media only screen and (max-width: 1400px) {
+        & {
+            font-size: .65rem;
+            gap: .8rem;
+            grid-template-columns: repeat(6, minmax(8rem, 1fr));
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        & {
+            font-size: .55rem;
+            gap: .7rem;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        & {
+            grid-template-columns: repeat(6, minmax(7rem, 1fr));
+        }
+    }
+    li {
+        cursor: pointer;
+        span {
+            display: inline-block;
+        }
+        &> :nth-child(2) {
+            vertical-align: middle;
+            margin-left: .5rem;
+        }
+    }
+}
+
+.main-dashboard-wrapper {
+    background-color: #fff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    margin-top: 3rem;
+    border-radius: .4rem;
+    overflow: scroll;
+    padding: 1rem;
+    @media only screen and (max-width: 1200px) {
+        & {}
+    }
+}
+
+.status-down-wrapper {
+    position: relative;
+}

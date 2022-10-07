@@ -1,0 +1,25 @@
+.status-dropdown {
+    background: #FFFFFF;
+    border: 1px solid rgba(84, 95, 125, 0.04);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: .4rem;
+    width: 11.3rem;
+    font-size: .9rem;
+    font-weight: 500;
+    color: #545F7D;
+    padding: 1rem 1rem 1rem 1.2rem;
+    position: absolute;
+    top: 12rem;
+    right: 0rem;
+    div {
+        display: flex;
+        align-items: center;
+        span {
+            display: inline-block;
+            margin-right: .5rem;
+        }
+    }
+    div:nth-child(2) {
+        margin: 1rem 0;
+    }
+}

@@ -6,9 +6,9 @@ import './login.scss'
 const Login = () => {
   return (
     <section className='login-page'>
-      <nav>
+      <aside>
         <CompanyLogo/>
-      </nav>
+      </aside>
       <div className='login-content'>
         <div  className='login-img'>
           <img src={loginPage} alt="Sign in Page Illustrator" />

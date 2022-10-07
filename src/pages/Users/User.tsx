@@ -1,10 +1,109 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {ReactComponent as Users} from '../../data/svgs/users.svg'
+import {ReactComponent as ActiveUsers} from '../../data/svgs/activeusers.svg'
+import {ReactComponent as UsersWithLoan} from '../../data/svgs/userswithloan.svg'
+import {ReactComponent as UsersWithSavings} from '../../data/svgs/userswithsavings.svg'
+import {ReactComponent as DropDown} from '../../data/svgs/dropdown.svg'
+import StatusDropDown from '../../components/StatusDropDown/StatusDropDown'
+import './user.scss'
+import EachUser from '../../components/EachUser/EachUser'
+import FormDropDown from '../../components/FormDropDown/FormDropDown'
+import MenuIcon from '@mui/icons-material/Menu';
+import {useSidebar } from '../../context/ContextProvider'
+
 
 const User = () => {
+
+  const {setSidebar,sidebar}=useSidebar()
+  const [showFilterForm,setShowFilterForm]=useState(false)
+  const [showStatusDropDown,setShowStatusDropDown]=useState(false)
+  const handleOpenSideBar=()=>{
+    setSidebar?.(true)
+  }
+  const handleToggleFilterForm=()=>{
+    setShowFilterForm((prev)=>!prev)
+  }
+
   return (
-    <div>
+    <section className='all-users'>
+      <div onClick={handleOpenSideBar}>
+      { !sidebar ? <MenuIcon/> : <></>}
       
-    </div>
+      </div>
+      <h2>Users</h2>
+      <ul className='users-box'>
+        <li>
+          <span className='user-box-icon'> <Users/></span>
+          <span className='users-box-title'>USERS</span>
+          <span className='users-box-amount'>2,453</span>
+        </li>
+        <li>
+          <span className='user-box-icon'> <ActiveUsers/></span>
+          <span className='users-box-title'>ACTIVE USERS</span>
+          <span className='users-box-amount'>2,453</span>
+        </li>
+        <li>
+          <span className='user-box-icon'> <UsersWithLoan/></span>
+          <span className='users-box-title'>USERS WITH LOANS</span>
+          <span className='users-box-amount'>12,453</span>
+        </li>
+        <li>
+          <span className='user-box-icon'> <UsersWithSavings/></span>
+          <span className='users-box-title'>USERS WITH SAVINGS</span>
+          <span className='users-box-amount'>102,453</span>
+        </li>
+      </ul>
+      <div className='main-dashboard-wrapper'>
+
+      <ul className='main-dashboard'>
+        {showFilterForm &&
+        <FormDropDown/>
+        }
+          <li onClick={handleToggleFilterForm}>
+            <span>ORGANIZATION</span>
+            <span><DropDown/></span>
+          </li>
+          <li onClick={handleToggleFilterForm}>
+            <span>USERNAME</span>
+            <span><DropDown/></span>
+          </li>
+          <li onClick={handleToggleFilterForm}>
+            <span>EMAIL</span>
+            <span><DropDown/></span>
+          </li>
+          <li onClick={handleToggleFilterForm}>
+            <span>PHONE NUMBER</span>
+            <span><DropDown/></span>
+          </li>
+          <li onClick={handleToggleFilterForm}>
+            <span>DATE JOINED</span>
+            <span><DropDown/></span>
+          </li>
+          <li onClick={handleToggleFilterForm}>
+            <span>STATUS</span>
+            <span><DropDown/></span>
+          </li>
+      </ul>
+      <div className='status-down-wrapper'>
+
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+      <EachUser handleClick={setShowStatusDropDown}/>
+{
+  showStatusDropDown &&
+      <StatusDropDown/>
+}
+      </div>
+
+      </div>
+    </section>
   )
 }
 

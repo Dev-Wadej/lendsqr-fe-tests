@@ -8,6 +8,7 @@ import Human from '../../data/images/human.jpg'
 import {ReactComponent as Bell} from '../../data/svgs/bell.svg'
 import Sidebar from '../Sidebar/Sidebar'
 
+
 const Navbar = () => {
   return (
       <>

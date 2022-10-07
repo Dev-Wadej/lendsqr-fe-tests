@@ -1,0 +1,50 @@
+.eachuser {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(6, minmax(9rem, 1fr));
+    color: rgba(84, 95, 125, 1);
+    font-size: .80rem;
+    padding: .88rem;
+    border-radius: .2rem;
+    font-weight: 400;
+    @media only screen and (max-width: 1400px) {
+        & {
+            grid-template-columns: repeat(6, minmax(8rem, 1fr));
+            font-size: .55rem;
+            gap: .7rem;
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        & {
+            grid-template-columns: repeat(6, minmax(7rem, 1fr));
+        }
+    }
+    li {
+        span {
+            display: inline-block;
+        }
+        &> :nth-child(2) {
+            vertical-align: middle;
+            margin-left: .5rem;
+        }
+        button {
+            border: none;
+            border-radius: 3rem;
+            background: #F0F8F2;
+            padding: .5rem .9rem;
+            color: rgba(57, 205, 98, 1);
+        }
+    }
+    li {
+        &:last-child {
+            display: flex;
+            justify-content: space-between;
+            @media only screen and (max-width: 1200px) {
+                & {
+                    gap: 1rem;
+                    justify-content: start;
+                }
+            }
+        }
+    }
+}
