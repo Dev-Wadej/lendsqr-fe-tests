@@ -1,7 +1,7 @@
-nav {
+.navbar-top {
     font-family: 'Work sans', sans-serif;
     display: flex;
-    margin-left: 3vw;
+    padding-left: 3vw;
     background: #FFFFFF;
     box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
     justify-content: space-between;
@@ -52,6 +52,7 @@ nav {
         align-items: center;
         justify-content: space-between;
         padding-right: 3vw;
+        padding-bottom: 1rem;
         div {
             span {
                 background-color: #39CDCC;
@@ -107,7 +108,7 @@ nav {
             input::placeholder {
                 color: #545F7D;
                 opacity: 0.7;
-                font-size: 90%;
+                font-size: 1rem;
                 position: relative;
                 left: .8rem;
                 @media only screen and (max-width: 1100px) {

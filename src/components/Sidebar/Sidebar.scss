@@ -1,140 +1,162 @@
-    .sidebar {
-        position: fixed;
-        font-family: 'Work Sans', sans-serif;
-        overflow: scroll;
-        width: 20vw;
-        margin-top: 8rem;
-        height: 90vh;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
-        padding-left: 2%;
-        padding-top: 3rem;
-        top: -5rem;
-        z-index: 50;
-        background-color: #fff;
-        @media only screen and (max-width: 1000px) {
-            & {
-                width: 15rem;
-                height: 100vh;
-                overflow-x: hidden;
-            }
-        }
-        .sidebar-top {
-            display: flex;
-            gap: .7rem;
-            @media only screen and (max-width: 1400px) {
-                & {
-                    font-size: 85%;
-                }
-            }
-            @media only screen and (max-width: 1200px) {
-                & {
-                    font-size: 75%;
-                }
-            }
-            span {
-                color: rgba(33, 63, 125, 1);
-                display: inline-block;
-            }
+@keyframes slideIntoView {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.sidebar {
+    position: fixed;
+    overscroll-behavior: contain;
+    font-family: 'Work Sans', sans-serif;
+    overflow: scroll;
+    width: 20vw;
+    margin-top: 10rem;
+    height: 100vh;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+    padding-left: 2%;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    top: -5rem;
+    z-index: 50;
+    background-color: #fff;
+    transition: all 2s;
+    @media only screen and (max-width: 1000px) {
+        & {
+            width: 15rem;
+            height: 100vh;
+            overflow-x: hidden;
+            animation: slideintoView 2s;
         }
     }
-    
-    .sidebar-dashboard {
-        margin-top: 4rem;
-        p {
-            color: #8d9cbd;
-            font-size: .9rem;
-            font-weight: 400;
-            @media only screen and (max-width: 1400px) {
-                & {
-                    font-size: 95%;
-                }
-            }
-            @media only screen and (max-width: 1200px) {
-                & {
-                    font-size: 90%;
-                }
-            }
-        }
-    }
-    
-    .sidebar-links {
-        display: block;
-        h4 {
-            color: rgba(84, 95, 125, 1);
-            font-size: .8rem;
-            font-weight: 500;
-            margin-top: 3rem;
-            margin-bottom: 2rem;
-            @media only screen and (max-width: 1400px) {
-                & {
-                    font-size: .7rem;
-                }
-            }
-            @media only screen and (max-width: 1200px) {
-                & {
-                    font-size: .65rem;
-                }
-            }
-        }
-        a {
-            span {
-                display: inline-block;
-            }
-        }
-    }
-    
-    .sidebar-links-each {
+    .sidebar-top {
         display: flex;
         gap: .7rem;
-        color: #717f9e;
-        opacity: .7;
-        font-weight: 400;
-        font-size: .93rem;
-        align-items: center;
-        margin-bottom: 1.5rem;
         @media only screen and (max-width: 1400px) {
             & {
-                font-size: .87rem;
+                font-size: 85%;
             }
         }
         @media only screen and (max-width: 1200px) {
             & {
-                font-size: .75rem;
+                font-size: 75%;
+            }
+        }
+        span {
+            color: rgba(33, 63, 125, 1);
+            display: inline-block;
+        }
+    }
+}
+
+.sidebar-dashboard {
+    margin-top: 4rem;
+    p {
+        color: #8d9cbd;
+        font-size: .9rem;
+        font-weight: 400;
+        @media only screen and (max-width: 1400px) {
+            & {
+                font-size: 95%;
+            }
+        }
+        @media only screen and (max-width: 1200px) {
+            & {
+                font-size: 90%;
             }
         }
     }
-    
-    .active-link {
-        color: red;
-    }
-    
-    #active {
-        position: relative;
-        .sidebar-links-eaches {
-            color: #213f7d;
+}
+
+.sidebar-links {
+    display: block;
+    h4 {
+        color: rgba(84, 95, 125, 1);
+        font-size: .8rem;
+        font-weight: 500;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        @media only screen and (max-width: 1400px) {
+            & {
+                font-size: .7rem;
+            }
+        }
+        @media only screen and (max-width: 1200px) {
+            & {
+                font-size: .65rem;
+            }
         }
     }
-    
-    #active::before {
-        position: absolute;
-        content: '';
-        border-left: 2px solid #39CDCC;
-        padding: 1rem;
-        top: -.4rem;
-        bottom: 0;
-        left: -1.7rem;
-        width: 15.8rem;
-        background-color: #e5f6f6;
-        z-index: -20;
-    }
-    
-    .close {
-        text-align: right;
-        padding-right: .4rem;
-        position: relative;
-        top: -2rem;
-        color: #40547a;
-        @media only screen and (max-width: 500px) {
-            top: -1rem;
+    a {
+        span {
+            display: inline-block;
         }
     }
+}
+
+.sidebar-links-each {
+    display: flex;
+    gap: .7rem;
+    color: #717f9e;
+    opacity: .7;
+    font-weight: 400;
+    font-size: .93rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    @media only screen and (max-width: 1400px) {
+        & {
+            font-size: .87rem;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        & {
+            font-size: .75rem;
+        }
+    }
+}
+
+.active-link {
+    color: red;
+}
+
+#active {
+    position: relative;
+    .sidebar-links-eaches {
+        color: #213f7d;
+    }
+}
+
+#active::before {
+    position: absolute;
+    content: '';
+    border-left: 2px solid #39CDCC;
+    padding: 1.2rem;
+    top: -.4rem;
+    bottom: 0;
+    left: -1.7rem;
+    width: 17.8rem;
+    background-color: #e5f6f6;
+    z-index: -20;
+}
+
+.close {
+    text-align: right;
+    padding-right: .4rem;
+    position: relative;
+    top: -2rem;
+    color: #40547a;
+    @media only screen and (max-width: 500px) {
+        top: -1rem;
+    }
+}
+
+@keyframes slideIntoView {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}

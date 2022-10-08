@@ -1,30 +1,78 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {Link} from 'react-router-dom'
 import './EachUser.scss';
 import {ReactComponent as StatusToggler} from '../../data/svgs/statustoggler.svg'
+import StatusDropDown from '../../components/StatusDropDown/StatusDropDown'
 
 
 
-interface IEachUser{
-  handleClick: React.Dispatch<React.SetStateAction<boolean>>
 
+interface IUsersData{
+  data:{
+   createdAt:string;
+    orgName:string
+   email:string;
+   id:string;
+   userName:string;
+  phoneNumber:string;
+  }
 }
-const EachUser:React.FC<IEachUser> = ({handleClick}) => {
+const status=[
+  {title:'Active',color:'#39CD62',backgroundColor:'#F3FCF6'},
+{title:'Blacklisted',color:'#E4033B',backgroundColor:'#FCE6EB'},
+{title:'Pending',color:'#E9B200',backgroundColor:'#FDF7E5'},
+{title:'Inactive',color:'#545F7D',backgroundColor:'#F5F5F7'}
+]
+const randomStatusValue=()=>{
+const value= Math.floor(Math.random() * status.length)
+const {backgroundColor,color,title}= status[value]
+return {backgroundColor,color,title}
+}
 
+
+const EachUser:React.FC<IUsersData> = ({data}) => {
+
+  const [showStatusDropDown,setShowStatusDropDown]=useState(false)
+  const{backgroundColor,color,title} =randomStatusValue()
   const handleStatusToggler=()=>{
-    handleClick?.(prev=>!prev)
+    setShowStatusDropDown(prev=>!prev)
   }
 
   return (
 
     <ul className='eachuser'>
-        <li>Lendsqr</li>
-        <li>Adedeji</li>
-        <li>adedeji@lendsqr.com</li>
-        <li>08078903721</li>
-        <li>May 15, 2020 10:00 AM</li>
-        <li onClick={handleStatusToggler}>
-            <button>Inactive</button>
+        <li>
+        
+          {data.orgName}
+        
+          </li>
+        <li>
+          
+          {data.userName}
+        
+        </li>
+        <li>
+        
+        {data.email}
+        </li>
+        <li>
+        
+        {data.phoneNumber}
+        </li>
+        <li>
+        
+        {data.createdAt}
+        </li>
+
+        <li className='status-toggler-parent' onClick={handleStatusToggler}>
+            <button style={{color:color,background:backgroundColor}}>{title}</button>
             <StatusToggler/>
+              {showStatusDropDown &&
+              
+            <StatusDropDown id={data.id}/>
+              }
+
+
         </li>
     </ul>
 

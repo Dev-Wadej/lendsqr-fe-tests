@@ -19,7 +19,6 @@ const Sidebar = () => {
 
             if(screenSize !==null){
                 screenSize!<1000 ? setSidebar?.(false) :setSidebar?.(true)
-                console.log('got here')
             }
 
             const handleResize=()=>setScreenSize?.(window.innerWidth);

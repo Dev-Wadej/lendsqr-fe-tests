@@ -9,11 +9,15 @@
     color: #545F7D;
     padding: 1rem 1rem 1rem 1.2rem;
     position: absolute;
-    top: 12rem;
-    right: 0rem;
+    right: -3rem;
+    top: 3rem;
     div {
         display: flex;
         align-items: center;
+        a {
+            display: flex;
+            align-items: center;
+        }
         span {
             display: inline-block;
             margin-right: .5rem;

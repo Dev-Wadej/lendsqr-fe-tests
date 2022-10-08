@@ -1,4 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+import {useGetUsersQuery} from '../../features/api/apiSlice'
+import { useUsersPagination } from '../../hooks/useUsersPagination'
+import {Link} from 'react-router-dom'
 import {ReactComponent as Users} from '../../data/svgs/users.svg'
 import {ReactComponent as ActiveUsers} from '../../data/svgs/activeusers.svg'
 import {ReactComponent as UsersWithLoan} from '../../data/svgs/userswithloan.svg'
@@ -10,25 +13,55 @@ import EachUser from '../../components/EachUser/EachUser'
 import FormDropDown from '../../components/FormDropDown/FormDropDown'
 import MenuIcon from '@mui/icons-material/Menu';
 import {useSidebar } from '../../context/ContextProvider'
+import PaginationRounded from '../../components/Pagination/Pagination'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+
+
+
+
 
 
 const User = () => {
 
-  const {setSidebar,sidebar}=useSidebar()
+  const {setSidebar,sidebar,pageNo}=useSidebar()
   const [showFilterForm,setShowFilterForm]=useState(false)
-  const [showStatusDropDown,setShowStatusDropDown]=useState(false)
+  
+
+
+
+  const {state,setState}= useLocalStorage('user')
+
+
+    const { data, isLoading,isError } = useGetUsersQuery(true)
+
+
+
+
+ 
+
+    const res=useUsersPagination?.(state,pageNo)
+   
+    
+    
   const handleOpenSideBar=()=>{
     setSidebar?.(true)
   }
+ 
+
   const handleToggleFilterForm=()=>{
     setShowFilterForm((prev)=>!prev)
   }
+  
+
+  useEffect(()=>{
+    
+    setState(data!)
+  },[data,setState])
 
   return (
     <section className='all-users'>
       <div onClick={handleOpenSideBar}>
-      { !sidebar ? <MenuIcon/> : <></>}
-      
+      { !sidebar ? <MenuIcon className='menu'/> : <></>}
       </div>
       <h2>Users</h2>
       <ul className='users-box'>
@@ -85,24 +118,17 @@ const User = () => {
           </li>
       </ul>
       <div className='status-down-wrapper'>
-
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-      <EachUser handleClick={setShowStatusDropDown}/>
-{
+      {res?.amtPerPage?.map((eachUserDetails,idx)=>(
+          <EachUser key={idx} data={eachUserDetails} />
+      ))}
+{/* {
   showStatusDropDown &&
       <StatusDropDown/>
-}
+} */}
+ </div>
       </div>
+      <PaginationRounded totalPage={res?.totalPages}/>
 
-      </div>
     </section>
   )
 }

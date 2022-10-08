@@ -3,17 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import {ContextProvider} from './context/ContextProvider'
-
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import reportWebVitals from './reportWebVitals';
+import theme from './components/Pagination/theme'
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { apiSlice } from "./features/api/apiSlice";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ContextProvider>
-    <App />
-    </ContextProvider>
+    <ApiProvider api={apiSlice}>
+
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <ContextProvider>
+       <App />
+      </ContextProvider>
+      </ThemeProvider>
+    </ApiProvider>
   </React.StrictMode>
 );
 

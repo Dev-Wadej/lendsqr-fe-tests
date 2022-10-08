@@ -12,7 +12,7 @@ import Sidebar from '../Sidebar/Sidebar'
 const Navbar = () => {
   return (
       <>
-      <nav>
+      <nav className='navbar-top'>
         <div className='nav-logo'>
           <CompanyLogo/>
         </div>

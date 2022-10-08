@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 import './userdetails.scss'
 import {ReactComponent as ArrowBack} from '../../data/svgs/backarrow.svg'
 import {ReactComponent as UserAvatar} from '../../data/svgs/useravatar.svg'
@@ -6,12 +7,24 @@ import {ReactComponent as StarFilled} from '../../data/svgs/starfilled.svg'
 import {ReactComponent as StarUnfilled} from '../../data/svgs/starunfilled.svg'
 import MenuIcon from '@mui/icons-material/Menu';
 import {useSidebar } from '../../context/ContextProvider'
+import { useParams } from 'react-router-dom'
+import { useGetEachUserQuery} from'../../features/api/apiSlice'
 
 const Userdetails = () => {
   const{sidebar,setSidebar}=useSidebar()
+  
+  const navigate= useNavigate()
+
+  const {id} = useParams()
+
+  const {data}=useGetEachUserQuery(id!)
   const handleOpenSideBar=()=>{
     setSidebar?.(true)
   }
+  const handleNavigationUser=()=>{
+    navigate('/dashboard/user')
+  }
+  
   return (
     <div className='user-details-section-wrapper'>
       <div onClick={handleOpenSideBar} className='user-hamburger'>
@@ -19,7 +32,7 @@ const Userdetails = () => {
     
       </div>
     <section className='user-details-section'>
-      <div className='user-details-arrow-back'>
+      <div onClick={handleNavigationUser} className='user-details-arrow-back' style={{cursor:'pointer'}}>
         <span><ArrowBack/></span>
         <span>Back to Users</span>
       </div>
@@ -33,11 +46,13 @@ const Userdetails = () => {
       <div className='user-top-details-wrapper'>
       <section className='user-details-top'>
           <aside className='user-details-avatar-wrapper'>
-            <span><UserAvatar/></span>
-            <p>
-              <h4>Grace Effiom</h4>
-              <span>LSQFf587g90</span>
-            </p>
+            <span className='avatar-img'> 
+            <img src={data?.profile.avatar} alt="User Avatar" />
+            </span>
+            <div>
+              <h4>{data?.profile.firstName} {data?.profile.lastName}</h4>
+              <span>{data?.accountNumber}</span>
+            </div>
           </aside>
           <aside className='user-tier'>
             <h3>User's Tier</h3>
@@ -67,23 +82,23 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>full Name</div>
-            <div>Grace Effiom</div>
+            <div>{data?.profile.firstName} {data?.profile.lastName}</div>
           </dl>
           <dl>
             <div className='user-name'>Phone Number</div>
-            <div>07060780922</div>
+            <div>{data?.profile.phoneNumber}</div>
           </dl>
           <dl>
             <div className='user-name'>Email Address</div>
-            <div>grace@gmail.com</div>
+            <div>{data?.email}</div>
           </dl>
           <dl>
             <div className='user-name'>Bvn</div>
-            <div>07060780922</div>
+            <div>{data?.profile.bvn}</div>
           </dl>
           <dl>
             <div className='user-name'>Gender</div>
-            <div>Female</div>
+            <div>{data?.profile.gender}</div>
           </dl>
           <dl>
             <div className='user-name'>Marital status</div>
@@ -105,31 +120,31 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>level of education</div>
-            <div>B.Sc</div>
+            <div>{data?.education.level}</div>
           </dl>
           <dl>
             <div className='user-name'>employment status</div>
-            <div>Employed</div>
+            <div>{data?.education.employmentStatus}</div>
           </dl>
           <dl>
             <div className='user-name'>sector of employment</div>
-            <div>FinTech</div>
+            <div>{data?.education.sector}</div>
           </dl>
           <dl>
             <div className='user-name'>Duration of employment</div>
-            <div>2 years</div>
+            <div>{data?.education.duration}</div>
           </dl>
           <dl>
             <div className='user-name'>office email</div>
-            <div>grace@lendsqr.com</div>
+            <div>{data?.education.officeEmail}</div>
           </dl>
           <dl>
             <div className='user-name'>Monthly income </div>
-            <div>₦200,000.00- ₦400,000.00</div>
+            <div>₦{data?.education.monthlyIncome[0]} - ₦{data?.education.monthlyIncome[1]} </div>
           </dl>
           <dl>
             <div className='user-name'>loan repayment</div>
-            <div>40,000</div>
+            <div>{data?.education.loanRepayment}</div>
           </dl>
           </div>
         </aside>
@@ -139,15 +154,15 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>Twitter</div>
-            <div>@grace_effiom</div>
+            <div>{data?.socials.twitter}</div>
           </dl>
           <dl>
             <div className='user-name'>Facebook</div>
-            <div>Grace Effiom</div>
+            <div>{data?.socials.facebook}</div>
           </dl>
           <dl>
             <div className='user-name'> Instagram</div>
-            <div>@grace_effiom</div>
+            <div>{data?.socials.instagram}</div>
           </dl>
           </div>
         </aside>
@@ -157,11 +172,11 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>full Name</div>
-            <div>Debby Ogana</div>
+            <div>{data?.guarantor.firstName} {data?.guarantor.lastName}</div>
           </dl>
           <dl>
             <div className='user-name'>Phone Number</div>
-            <div>07060780922</div>
+            <div>{data?.guarantor.phoneNumber}</div>
           </dl>
           <dl>
             <div className='user-name'> Email Address</div>

@@ -2,8 +2,9 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(6, minmax(9rem, 1fr));
+    // place-content: center;
     color: rgba(84, 95, 125, 1);
-    font-size: .80rem;
+    font-size: .88rem;
     padding: .88rem;
     border-radius: .2rem;
     font-weight: 400;
@@ -20,6 +21,10 @@
         }
     }
     li {
+        a {
+            color: rgba(84, 95, 125, 1);
+        }
+        word-wrap: break-word;
         span {
             display: inline-block;
         }
@@ -33,18 +38,36 @@
             background: #F0F8F2;
             padding: .5rem .9rem;
             color: rgba(57, 205, 98, 1);
+            @media only screen and (max-width: 1000px) {
+                & {
+                    font-size: 80%;
+                    padding: .3rem .7rem;
+                }
+            }
         }
     }
     li {
         &:last-child {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             @media only screen and (max-width: 1200px) {
                 & {
                     gap: 1rem;
-                    justify-content: start;
+                    justify-content: space-between;
                 }
             }
         }
     }
+}
+
+.status-toggler-parent {
+    position: relative;
+}
+
+.status-dropdown {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    right: 0;
 }

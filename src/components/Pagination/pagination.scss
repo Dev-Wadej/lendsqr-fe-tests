@@ -1,0 +1,15 @@
+.pagination {
+    font-weight: 400;
+    color: rgba(84, 95, 125, 1);
+    span {
+        font-weight: 400;
+        font-size: .80rem;
+        margin-right: .5rem;
+        select {
+            background-color: rgba(33, 63, 125, 0.1);
+            border-radius: .2rem;
+            border: none;
+            padding: .35rem;
+        }
+    }
+}

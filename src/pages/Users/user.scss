@@ -44,6 +44,11 @@
         & {
             width: 100vw;
             margin-left: 0;
+            div {
+                svg.menu {
+                    margin-top: 1rem;
+                }
+            }
         }
     }
 }
@@ -159,6 +164,11 @@
 }
 
 .main-dashboard-wrapper {
+    @media only screen and (min-width: 1200px) {
+        & {
+            overflow: visible;
+        }
+    }
     background-color: #fff;
     border: 1px solid rgba(33, 63, 125, 0.06);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -166,9 +176,6 @@
     border-radius: .4rem;
     overflow: scroll;
     padding: 1rem;
-    @media only screen and (max-width: 1200px) {
-        & {}
-    }
 }
 
 .status-down-wrapper {
