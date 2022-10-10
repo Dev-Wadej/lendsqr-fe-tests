@@ -1,4 +1,4 @@
-![Logo]('./src/data/images/Company.jpg)
+![Logo]('src/data/images/Company.jpg)
 # Lendsqr
 
 Lendsqr is a cloud-based, lending platform designed for small and medium-sized lenders, providing smart features at a zero upfront cost. It's a really sophisticated and easy to use app ensuring lenders manage their risk to the minimal level and reduce inefficiencies.
