@@ -15,21 +15,15 @@ Installation:
 ```
 
 Go to the project directory
+ ` cd lendsqr`
 
-```bash
-  cd lendsqr
-```
 
 Install dependencies
+ ` npm install`
 
-```bash
-  npm install
-```
 
 Start the server
+  `npm run start`
 
-```bash
-  npm run start
-```
 
 
