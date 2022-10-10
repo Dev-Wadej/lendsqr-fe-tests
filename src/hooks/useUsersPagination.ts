@@ -1,18 +1,7 @@
-interface IUsersData{
+import { IUsersData } from "../types/types";
 
-     createdAt:string;
-      orgName:string
-     email:string;
-     id:string;
-     userName:string;
-    phoneNumber:string;
-
-  
-  
-  }
 
 export const useUsersPagination=(users:IUsersData[], page = 1, userPerPage = 9)=>{
-
     if(!users)return;
     let totalPages = Math.ceil(users.length / userPerPage);
     const start = (page - 1) * userPerPage;

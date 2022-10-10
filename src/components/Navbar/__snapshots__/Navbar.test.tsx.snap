@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component snapshot HTML 1`] = `
+<nav
+  className="navbar-top"
+>
+  <div
+    className="nav-logo"
+  >
+    <svg>
+      companyLogo.svg
+    </svg>
+  </div>
+  <div
+    className="nav-elements"
+  >
+    <div>
+      <input
+        placeholder="Search For Anything"
+        type="text"
+      />
+      <span>
+        <svg>
+          search.svg
+        </svg>
+      </span>
+    </div>
+    <ul
+      className="navbar-ul"
+    >
+      <li>
+        <a
+          href="#"
+        >
+          Docs
+        </a>
+      </li>
+      <li>
+        <svg>
+          bell.svg
+        </svg>
+      </li>
+      <li>
+        <img
+          alt="The User's thumbnail"
+          src="human.jpg"
+        />
+        <span>
+           Adedeji 
+        </span>
+        <span>
+          <svg>
+            arrowdown.svg
+          </svg>
+        </span>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

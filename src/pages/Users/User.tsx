@@ -1,25 +1,26 @@
-import React,{useState,useEffect} from 'react'
+import {useState} from 'react'
+//============== Custom hooks======================================
 import {useGetUsersQuery} from '../../features/api/apiSlice'
+import {useSidebar } from '../../context/ContextProvider'
 import { useUsersPagination } from '../../hooks/useUsersPagination'
-import {Link} from 'react-router-dom'
+//=================================================================
+
+//========================= SVG======================================
 import {ReactComponent as Users} from '../../data/svgs/users.svg'
 import {ReactComponent as ActiveUsers} from '../../data/svgs/activeusers.svg'
 import {ReactComponent as UsersWithLoan} from '../../data/svgs/userswithloan.svg'
 import {ReactComponent as UsersWithSavings} from '../../data/svgs/userswithsavings.svg'
 import {ReactComponent as DropDown} from '../../data/svgs/dropdown.svg'
-import StatusDropDown from '../../components/StatusDropDown/StatusDropDown'
-import './user.scss'
+//=================================================================
+
+//========================= Component======================================
 import EachUser from '../../components/EachUser/EachUser'
 import FormDropDown from '../../components/FormDropDown/FormDropDown'
 import MenuIcon from '@mui/icons-material/Menu';
-import {useSidebar } from '../../context/ContextProvider'
 import PaginationRounded from '../../components/Pagination/Pagination'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+//======================================================================
 
-
-
-
-
+import './user.scss'
 
 const User = () => {
 
@@ -27,36 +28,26 @@ const User = () => {
   const [showFilterForm,setShowFilterForm]=useState(false)
   
 
-
-
-  const {state,setState}= useLocalStorage('user')
-
-
-    const { data, isLoading,isError } = useGetUsersQuery(true)
-
-
-
-
- 
-
-    const res=useUsersPagination?.(state,pageNo)
-   
-    
+  const { data, isLoading,isError } = useGetUsersQuery(true)
+  const res=useUsersPagination?.(data!,pageNo)  
     
   const handleOpenSideBar=()=>{
     setSidebar?.(true)
   }
  
-
   const handleToggleFilterForm=()=>{
     setShowFilterForm((prev)=>!prev)
   }
-  
-
-  useEffect(()=>{
-    
-    setState(data!)
-  },[data,setState])
+  if(isLoading){
+    return(
+      <div>Loading</div>
+    )
+  }
+  if(isError){
+    return(
+      <div>Error Messgae</div>
+    )
+  }
 
   return (
     <section className='all-users'>
@@ -121,10 +112,6 @@ const User = () => {
       {res?.amtPerPage?.map((eachUserDetails,idx)=>(
           <EachUser key={idx} data={eachUserDetails} />
       ))}
-{/* {
-  showStatusDropDown &&
-      <StatusDropDown/>
-} */}
  </div>
       </div>
       <PaginationRounded totalPage={res?.totalPages}/>

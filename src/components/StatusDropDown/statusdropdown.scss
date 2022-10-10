@@ -1,4 +1,4 @@
-.status-dropdown {
+.statuses-dropdown {
     background: #FFFFFF;
     border: 1px solid rgba(84, 95, 125, 0.04);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -11,6 +11,7 @@
     position: absolute;
     right: -3rem;
     top: 3rem;
+    z-index: 20;
     div {
         display: flex;
         align-items: center;
@@ -19,8 +20,9 @@
             align-items: center;
         }
         span {
-            display: inline-block;
             margin-right: .5rem;
+            display: grid;
+            place-content: center;
         }
     }
     div:nth-child(2) {

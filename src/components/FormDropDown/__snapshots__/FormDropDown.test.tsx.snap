@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component snapshot HTML 1`] = `
+<form
+  className="form-dropdown"
+>
+  <div>
+    <label
+      htmlFor="organization"
+    >
+      Organization
+    </label>
+    <select
+      id="organization"
+      name="organization"
+      placeholder="Select"
+    >
+      <option
+        value="select"
+      >
+        Select
+      </option>
+    </select>
+  </div>
+  <div>
+    <label
+      htmlFor="username"
+    >
+      Username
+    </label>
+    <input
+      id="username"
+      placeholder="User"
+      type="text"
+    />
+  </div>
+  <div>
+    <label
+      htmlFor="email"
+    >
+      Email
+    </label>
+    <input
+      id="email"
+      placeholder="Email"
+      type="email"
+    />
+  </div>
+  <div>
+    <label
+      htmlFor="date"
+    >
+      Date
+    </label>
+    <input
+      id="date"
+      placeholder="Date"
+      type="date"
+    />
+  </div>
+  <div>
+    <label
+      htmlFor="number"
+    >
+      Phone Number
+    </label>
+    <input
+      id="number"
+      placeholder="Phone Number"
+      type="number"
+    />
+  </div>
+  <div>
+    <label
+      htmlFor="organization"
+    >
+      Organization
+    </label>
+    <select
+      id="organization"
+      name="organization"
+      placeholder="Select"
+    >
+      <option
+        value="select"
+      >
+        Select
+      </option>
+    </select>
+  </div>
+  <br />
+  <div
+    className="form-btns"
+  >
+    <button
+      type="reset"
+    >
+      Reset
+    </button>
+    <br />
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Filter
+    </button>
+  </div>
+</form>
+`;

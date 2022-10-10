@@ -1,25 +1,13 @@
 import {useState,useContext,createContext} from 'react';
 
-
-
-interface IstateContext{
-    sidebar?:boolean;
-    setSidebar?:React.Dispatch<React.SetStateAction<boolean>>;
-    screenSize?: number|null;
-    setScreenSize?:React.Dispatch<React.SetStateAction<number|null>>;
-    pageNo?: number;
-    setPageNo?:React.Dispatch<React.SetStateAction<number>>;
-}
-interface IstateContext2{
-    children?: React.ReactNode
-}
+import { IstateContext2,IstateContext } from '../types/types';
 
 const initialState={
-    sidebar: false,
+    sidebar: false, //to toggle the sidebar 
     setSidebar: ()=>{},
-    screenSize:null ,
+    screenSize:null , // to know the current size of the user's screen
     setScreenSize: ()=>{},
-    pageNo:1,
+    pageNo:1,  //current page number on the dashboard
     setPageNo: ()=>{},
 }
 
@@ -35,6 +23,7 @@ return <StateContext.Provider value={value}>{children}</StateContext.Provider>
 }
 
 
+//custom hook for the context provider
 export const useSidebar=()=>{
     return useContext(StateContext)
 }

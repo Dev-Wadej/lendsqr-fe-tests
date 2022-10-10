@@ -14,7 +14,7 @@ import {ReactComponent as Karma} from '../svgs/karma.svg'
 import {ReactComponent as Organization} from '../svgs/briefcase.svg'
 import {ReactComponent as LoanProducts} from '../svgs/loanrequest.svg'
 import {ReactComponent as SavingsProduct} from '../svgs/savingsproduct.svg'
-import {ReactComponent as FeesAndCharge} from '../svgs/fees&charges.svg'
+import {ReactComponent as FeesAndCharge} from '../svgs/feesandcharges.svg'
 import {ReactComponent as Transactions} from '../svgs/transactions.svg'
 import {ReactComponent as Services} from '../svgs/services.svg'
 import {ReactComponent as ServiceAccount} from '../svgs/servicesaccount.svg'
@@ -24,7 +24,7 @@ import {ReactComponent as Reports} from '../svgs/reports.svg'
 
 //==============================Imports for sidebar 'settings'======================================//
 import {ReactComponent as Preferences} from '../svgs/preferences.svg'
-import {ReactComponent as FeesAndPricing} from '../svgs/fees&pricing.svg'
+import {ReactComponent as FeesAndPricing} from '../svgs/feesandpricing.svg'
 import {ReactComponent as AuditLogs} from '../svgs/auditlogs.svg'
 //================================================================================================//
 

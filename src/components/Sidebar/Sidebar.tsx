@@ -1,12 +1,17 @@
-import React,{useEffect,useState} from 'react'
+import {useEffect,useState} from 'react'
+import { NavLink } from 'react-router-dom'
+
+
+//=============================Svg's====================================
 import {ReactComponent as ArrowDown} from '../../data/svgs/arrowdown2.svg'
 import {ReactComponent as Briefcase} from '../../data/svgs/briefcase.svg'
 import {ReactComponent as Home} from '../../data/svgs/home.svg'
-import { customers,businesses,settings } from '../../data/dummydata'
 import CloseIcon from '@mui/icons-material/Close';
-import { useSidebar } from '../../context/ContextProvider' 
+//========================= ==========================================
+
+import { customers,businesses,settings } from '../../data/dummydata' ///Created dummy data for sidebar easy implementation
+import { useSidebar } from '../../context/ContextProvider'  //Custom hook for sidebar
 import './Sidebar.scss'
-import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
     const {sidebar,setSidebar,setScreenSize,screenSize}=useSidebar()

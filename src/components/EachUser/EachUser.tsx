@@ -1,36 +1,33 @@
 import React,{useState} from 'react'
-import {Link} from 'react-router-dom'
+import {ReactComponent as StatusToggler} from '../../data/svgs/statustoggler.svg' //Svg
+import StatusDropDown from '../../components/StatusDropDown/StatusDropDown' //components
+import { IUsersData } from '../../types/types'; //Typescript
 import './EachUser.scss';
-import {ReactComponent as StatusToggler} from '../../data/svgs/statustoggler.svg'
-import StatusDropDown from '../../components/StatusDropDown/StatusDropDown'
 
 
 
 
-interface IUsersData{
-  data:{
-   createdAt:string;
-    orgName:string
-   email:string;
-   id:string;
-   userName:string;
-  phoneNumber:string;
-  }
-}
+
+
+//=========================HElper Function for generating random Status=====================
 const status=[
   {title:'Active',color:'#39CD62',backgroundColor:'#F3FCF6'},
-{title:'Blacklisted',color:'#E4033B',backgroundColor:'#FCE6EB'},
-{title:'Pending',color:'#E9B200',backgroundColor:'#FDF7E5'},
-{title:'Inactive',color:'#545F7D',backgroundColor:'#F5F5F7'}
+  {title:'Blacklisted',color:'#E4033B',backgroundColor:'#FCE6EB'},
+  {title:'Pending',color:'#E9B200',backgroundColor:'#FDF7E5'},
+  {title:'Inactive',color:'#545F7D',backgroundColor:'#F5F5F7'}
 ]
 const randomStatusValue=()=>{
-const value= Math.floor(Math.random() * status.length)
-const {backgroundColor,color,title}= status[value]
-return {backgroundColor,color,title}
+  const value= Math.floor(Math.random() * status.length)
+  const {backgroundColor,color,title}= status[value]
+  return {backgroundColor,color,title}
 }
+///================================================================================================
 
 
-const EachUser:React.FC<IUsersData> = ({data}) => {
+interface IEachUser{
+  data:IUsersData
+}
+const EachUser:React.FC<IEachUser> = ({data}) => {
 
   const [showStatusDropDown,setShowStatusDropDown]=useState(false)
   const{backgroundColor,color,title} =randomStatusValue()

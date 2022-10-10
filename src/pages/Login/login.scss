@@ -98,6 +98,7 @@
                     }
                     input::placeholder {
                         color: rgba(84, 95, 125, .6);
+                        font-family: 'Avenir';
                     }
                 }
                 
@@ -110,9 +111,10 @@
                 .forgot-password {
                     color: rgba(57, 205, 204, 1);
                     background-color: #fff;
-                    font-size: 70%;
                     word-spacing: .15rem;
                     margin: 1.2rem 0;
+                    font-family: 'AvenirBold';
+                    font-size: .62rem;
                 }
                 
                 .login-btn {
@@ -121,9 +123,23 @@
                     padding: .7rem 10.3rem;
                     border-radius: .3rem;
                     margin-top: 2rem;
+                    font-family: 'AvenirBold';
+                    font-size: .9rem;
                 }
                 
                 input:focus,
                 button:focus {
                     outline: none;
+                }
+                
+                .show-password {
+                    position: relative;
+                    a {
+                        position: absolute;
+                        right: 1.4rem;
+                        top: .9rem;
+                        font-size: .63rem;
+                        font-family: 'AvenirBold';
+                        color: #39CDCC;
+                    }
                 }

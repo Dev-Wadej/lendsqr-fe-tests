@@ -1,20 +1,24 @@
-import React,{useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import React from 'react'
+import {useNavigate,useParams} from 'react-router-dom'
+
+import MenuIcon from '@mui/icons-material/Menu';
 import './userdetails.scss'
+
+//=========================Custom Hooks====================================
+import {useSidebar } from '../../context/ContextProvider'
+import { useGetEachUserQuery} from'../../features/api/apiSlice'
+//============================================================================
+
+//=========================SVG's===============   ============  ===========
 import {ReactComponent as ArrowBack} from '../../data/svgs/backarrow.svg'
-import {ReactComponent as UserAvatar} from '../../data/svgs/useravatar.svg'
 import {ReactComponent as StarFilled} from '../../data/svgs/starfilled.svg'
 import {ReactComponent as StarUnfilled} from '../../data/svgs/starunfilled.svg'
-import MenuIcon from '@mui/icons-material/Menu';
-import {useSidebar } from '../../context/ContextProvider'
-import { useParams } from 'react-router-dom'
-import { useGetEachUserQuery} from'../../features/api/apiSlice'
+//============================================================================
 
 const Userdetails = () => {
-  const{sidebar,setSidebar}=useSidebar()
-  
-  const navigate= useNavigate()
 
+  const{sidebar,setSidebar}=useSidebar()
+  const navigate= useNavigate()
   const {id} = useParams()
 
   const {data}=useGetEachUserQuery(id!)

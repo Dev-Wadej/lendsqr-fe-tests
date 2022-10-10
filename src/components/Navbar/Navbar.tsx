@@ -1,12 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import './Navbar.scss'
+
+import Sidebar from '../Sidebar/Sidebar'
+
+//============================SVG's =============================================
 import {ReactComponent as CompanyLogo} from '../../data/svgs/companyLogo.svg'
 import {ReactComponent as Search} from '../../data/svgs/search.svg'
 import {ReactComponent as ArrowDown} from '../../data/svgs/arrowdown.svg'
 import Human from '../../data/images/human.jpg'
 import {ReactComponent as Bell} from '../../data/svgs/bell.svg'
-import Sidebar from '../Sidebar/Sidebar'
+//=================================================================================
 
 
 const Navbar = () => {

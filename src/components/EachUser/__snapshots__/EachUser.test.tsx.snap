@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Each user component snapshot HTML 1`] = `
+<ul
+  className="eachuser"
+>
+  <li>
+    Lendsqr
+  </li>
+  <li>
+    Grace
+  </li>
+  <li>
+    lendsr@gmail.com
+  </li>
+  <li>
+    8199234
+  </li>
+  <li>
+    June 2022
+  </li>
+  <li
+    className="status-toggler-parent"
+    onClick={[Function]}
+  >
+    <button
+      style={
+        Object {
+          "background": "#F3FCF6",
+          "color": "#39CD62",
+        }
+      }
+    >
+      Active
+    </button>
+    <svg>
+      statustoggler.svg
+    </svg>
+  </li>
+</ul>
+`;

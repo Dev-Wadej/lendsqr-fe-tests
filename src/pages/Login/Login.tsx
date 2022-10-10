@@ -1,9 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import loginPage from '../../data/images/loginPage.jpg'
 import {ReactComponent as CompanyLogo} from '../../data/svgs/companyLogo.svg'
 import './login.scss'
 
 const Login = () => {
+
+  const navigate= useNavigate()
+  const [password,setPasword]=useState('')
+  const [showPassword,setShowPassword]=useState(false)
+  
+  const hanldePasswordValue=(e: React.ChangeEvent<HTMLInputElement>)=>{
+    setPasword(e.target.value)
+  }
+  const handleShowPassWord=()=>{
+    setShowPassword(prev=>!prev)
+  }
+  const handleLogin=()=>{
+    navigate('./dashboard/user')
+  }
+
   return (
     <section className='login-page'>
       <aside>
@@ -18,10 +35,14 @@ const Login = () => {
           <h5>Enter details to login</h5>
           <dl>
             <input type="text" placeholder='Email' />
-            <input type="text" placeholder='Password' />
+            <div className='show-password'>
+            <input type={showPassword ? 'text' :'password'} placeholder='Password' onChange={hanldePasswordValue} value={password} />
+            <a  href="#" onClick={handleShowPassWord}> {showPassword ? 'HIDE' : 'SHOW'} </a>
+            </div>
+            
           </dl>
           <button className='forgot-password'>FORGOT PASSWORD?</button>
-          <button className='login-btn'>LOGIN</button>
+          <button className='login-btn' onClick={handleLogin}>LOGIN</button>
         </div>
       </div>
       
