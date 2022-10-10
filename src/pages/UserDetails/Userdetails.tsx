@@ -39,7 +39,6 @@ const Userdetails = () => {
      if(!userCredentials){
        setState(data!) // storing to lacal storage
       }
-      console.log(userCredentials)
     },[id,data,setState,userCredentials])
   
   
