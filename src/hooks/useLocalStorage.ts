@@ -8,9 +8,9 @@ import { IEachUser } from "../types/types";
   }
 
 
-export const useLocalStorage = ( key:string, initialValue:string='user'): ILocalStorage => {
+export const useLocalStorage = ( key:string, initialValue?:string): ILocalStorage => {
     const [state, setState] = useState<IEachUser>(() => {
-      if (!initialValue) return;
+      // if (!initialValue) return;
         const value = localStorage.getItem(key);
         return value ? JSON.parse(value) : initialValue;
      
