@@ -14,15 +14,18 @@ Installation:
   git clone https://github.com/Jplayskeys/Lendsqr.git
 ```
 
-Go to the project directory
+Go to the project directory:
+
  ` cd lendsqr`
 
 
-Install dependencies
+Install dependencies:
+
  ` npm install`
 
 
-Start the server
+Start the server:
+
   `npm run start`
 
 
