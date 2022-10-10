@@ -26,12 +26,12 @@ exports[`Each user component snapshot HTML 1`] = `
     <button
       style={
         Object {
-          "background": "#F3FCF6",
-          "color": "#39CD62",
+          "background": "#F5F5F7",
+          "color": "#545F7D",
         }
       }
     >
-      Active
+      Inactive
     </button>
     <svg>
       statustoggler.svg

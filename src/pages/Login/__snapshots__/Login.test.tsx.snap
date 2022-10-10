@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`submitting the form 1`] = `
+<section
+  className="login-page"
+>
+  <aside>
+    <svg>
+      companyLogo.svg
+    </svg>
+  </aside>
+  <div
+    className="login-content"
+  >
+    <div
+      className="login-img"
+    >
+      <img
+        alt="Sign in Page Illustrator"
+        src="loginPage.jpg"
+      />
+    </div>
+    <form
+      className="login-typography"
+      onSubmit={[Function]}
+    >
+      <h1>
+        Welcome!
+      </h1>
+      <h5>
+        Enter details to login
+      </h5>
+      <dl>
+        <input
+          name="email"
+          placeholder="Email"
+          type="text"
+        />
+        <div
+          className="show-password"
+        >
+          <input
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+             
+            SHOW
+             
+          </a>
+        </div>
+      </dl>
+      <button
+        className="forgot-password"
+      >
+        FORGOT PASSWORD?
+      </button>
+      <button
+        className="login-btn"
+        onClick={[Function]}
+        type="submit"
+      >
+        LOGIN
+      </button>
+    </form>
+  </div>
+</section>
+`;

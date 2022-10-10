@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component snapshot HTML 1`] = `
+<section
+  className="statuses-dropdown"
+>
+  <div>
+    <a
+      href="/2"
+      onClick={[Function]}
+    >
+      <span>
+        <svg>
+          eyes.svg
+        </svg>
+      </span>
+      <span>
+        View Details
+      </span>
+    </a>
+  </div>
+  <div>
+    <span>
+      <svg>
+        blacklistuser.svg
+      </svg>
+    </span>
+    <span>
+      Blacklist User
+    </span>
+  </div>
+  <div>
+    <span>
+      <svg>
+        activateuser.svg
+      </svg>
+    </span>
+    <span>
+      Activate User
+    </span>
+  </div>
+</section>
+`;

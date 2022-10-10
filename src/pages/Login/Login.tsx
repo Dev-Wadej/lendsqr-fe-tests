@@ -20,6 +20,9 @@ const Login = () => {
   const handleLogin=()=>{
     navigate('./dashboard/user')
   }
+  const handleFormSubmit=(e:React.FormEvent)=>{
+    e.preventDefault()
+  }
 
   return (
     <section className='login-page'>
@@ -30,20 +33,20 @@ const Login = () => {
         <div  className='login-img'>
           <img src={loginPage} alt="Sign in Page Illustrator" />
         </div>
-        <div className='login-typography'>
+        <form className='login-typography' onSubmit={handleFormSubmit}>
           <h1>Welcome!</h1>
           <h5>Enter details to login</h5>
           <dl>
-            <input type="text" placeholder='Email' />
+            <input type="text" placeholder='Email' name='email' />
             <div className='show-password'>
-            <input type={showPassword ? 'text' :'password'} placeholder='Password' onChange={hanldePasswordValue} value={password} />
+            <input name='password' type={showPassword ? 'text' :'password'} placeholder='Password' onChange={hanldePasswordValue} value={password} />
             <a  href="#" onClick={handleShowPassWord}> {showPassword ? 'HIDE' : 'SHOW'} </a>
             </div>
             
           </dl>
           <button className='forgot-password'>FORGOT PASSWORD?</button>
-          <button className='login-btn' onClick={handleLogin}>LOGIN</button>
-        </div>
+          <button type='submit' className='login-btn' onClick={handleLogin}>LOGIN</button>
+        </form>
       </div>
       
     </section>

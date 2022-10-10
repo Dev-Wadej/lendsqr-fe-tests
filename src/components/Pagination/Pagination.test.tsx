@@ -5,7 +5,7 @@ import {cleanup, fireEvent, render} from '@testing-library/react';
 
 
 afterEach(cleanup)
-test('Form component snapshot HTML', () => {
+test('Material ui component snapshot HTML', () => {
   const output = renderer.create(<Pagination totalPage={2}/>).toJSON();
   expect(output).toMatchSnapshot();
 });

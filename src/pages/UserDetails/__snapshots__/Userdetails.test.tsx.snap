@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Userdetails component snapshot HTML 1`] = `
+<div
+  className="user-details-section-wrapper"
+>
+  <div
+    className="user-hamburger"
+    onClick={[Function]}
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+      data-testid="MenuIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+      />
+    </svg>
+  </div>
+  <section
+    className="user-details-section"
+  >
+    <div
+      className="user-details-arrow-back"
+      onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      <span>
+        <svg>
+          backarrow.svg
+        </svg>
+      </span>
+      <span>
+        Back to Users
+      </span>
+    </div>
+    <div
+      className="user-details-header"
+    >
+      <h3>
+        User Details
+      </h3>
+      <dl>
+        <button>
+          BLACKLIST USER
+        </button>
+        <button>
+          ACTIVATE USER
+        </button>
+      </dl>
+    </div>
+    <div
+      className="user-top-details-wrapper"
+    >
+      <section
+        className="user-details-top"
+      >
+        <aside
+          className="user-details-avatar-wrapper"
+        >
+          <span
+            className="avatar-img"
+          >
+            <img
+              alt="User Avatar"
+            />
+          </span>
+          <div>
+            <h4>
+               
+            </h4>
+            <span />
+          </div>
+        </aside>
+        <aside
+          className="user-tier"
+        >
+          <h3>
+            User's Tier
+          </h3>
+          <span>
+            <svg>
+              starfilled.svg
+            </svg>
+            <svg>
+              starunfilled.svg
+            </svg>
+            <svg>
+              starunfilled.svg
+            </svg>
+          </span>
+        </aside>
+        <aside
+          className="user-numerics"
+        >
+          <h4>
+            ₦200,000.00
+          </h4>
+          <p>
+            9912345678/Providus Bank
+          </p>
+        </aside>
+      </section>
+      <section
+        className="user-tab"
+      >
+        <button
+          className="active"
+        >
+          General Details
+        </button>
+        <button>
+          Documents
+        </button>
+        <button>
+          Bank Details
+        </button>
+        <button>
+          Loans
+        </button>
+        <button>
+          Savings
+        </button>
+        <button>
+          App and System
+        </button>
+      </section>
+    </div>
+    <section
+      className="user-heavy-info"
+    >
+      <aside
+        className="user-personal-info"
+      >
+        <h5>
+          Personal Information
+        </h5>
+        <div>
+          <dl>
+            <div
+              className="user-name"
+            >
+              full Name
+            </div>
+            <div>
+               
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Phone Number
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Email Address
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Bvn
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Gender
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Marital status
+            </div>
+            <div>
+              Single
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Children
+            </div>
+            <div>
+              None
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Type of residence
+            </div>
+            <div>
+              Parent’s Apartment
+            </div>
+          </dl>
+        </div>
+      </aside>
+      <hr />
+      <aside
+        className="user-education-job"
+      >
+        <h5>
+          Education and Employment
+        </h5>
+        <div>
+          <dl>
+            <div
+              className="user-name"
+            >
+              level of education
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              employment status
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              sector of employment
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Duration of employment
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              office email
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Monthly income 
+            </div>
+            <div>
+              ₦
+               - ₦
+               
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              loan repayment
+            </div>
+            <div />
+          </dl>
+        </div>
+      </aside>
+      <hr />
+      <aside
+        className="user-socials"
+      >
+        <h5>
+          Socials
+        </h5>
+        <div>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Twitter
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Facebook
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+               Instagram
+            </div>
+            <div />
+          </dl>
+        </div>
+      </aside>
+      <hr />
+      <aside
+        className="user-socials"
+      >
+        <h5>
+          Guarantor
+        </h5>
+        <div>
+          <dl>
+            <div
+              className="user-name"
+            >
+              full Name
+            </div>
+            <div>
+               
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Phone Number
+            </div>
+            <div />
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+               Email Address
+            </div>
+            <div>
+              debby@gmail.com
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+               Relationship
+            </div>
+            <div>
+              Sister
+            </div>
+          </dl>
+        </div>
+      </aside>
+      <hr />
+      <aside
+        className="user-socials"
+      >
+        <h5>
+           
+        </h5>
+        <div>
+          <dl>
+            <div
+              className="user-name"
+            >
+              full Name
+            </div>
+            <div>
+              Debby Ogana
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+              Phone Number
+            </div>
+            <div>
+              07060780922
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+               Email Address
+            </div>
+            <div>
+              debby@gmail.com
+            </div>
+          </dl>
+          <dl>
+            <div
+              className="user-name"
+            >
+               Relationship
+            </div>
+            <div>
+              Sister
+            </div>
+          </dl>
+        </div>
+      </aside>
+    </section>
+  </section>
+</div>
+`;

@@ -5,7 +5,7 @@ import {cleanup, fireEvent, render} from '@testing-library/react';
 
 
 afterEach(cleanup)
-test('Form component snapshot HTML', () => {
+test('Sidebar component snapshot HTML', () => {
   const output = renderer.create(<Sidebar/>).toJSON();
   expect(output).toMatchSnapshot();
 });

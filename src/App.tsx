@@ -1,5 +1,5 @@
 import React,{Suspense} from 'react';
-import {Dashboard,Login,User,UserDetails} from './pages'
+import {Login,User,UserDetails} from './pages'
 import {Navbar} from './components';
 import {Route,BrowserRouter as Router, Routes} from 'react-router-dom'
 
@@ -23,7 +23,6 @@ const App = () => {
        </Routes>
           <Routes>
             <Route path='/dashboard' element={<Navbar/>}>
-              <Route index element={<Dashboard/>}></Route>
               <Route path='/dashboard/user' element={<User/>}></Route>
               <Route path='/dashboard/user/:id' element={<UserDetails/>}></Route>      
             </Route>

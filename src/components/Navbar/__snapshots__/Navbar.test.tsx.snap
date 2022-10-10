@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form component snapshot HTML 1`] = `
+exports[`Navbar component snapshot HTML 1`] = `
 <nav
   className="navbar-top"
 >

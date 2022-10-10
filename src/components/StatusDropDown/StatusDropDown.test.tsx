@@ -12,5 +12,8 @@ test('Form component snapshot HTML', () => {
       <StatusDropDown id='2'/>
     </MemoryRouter>
   );
-//   expect(output).toMatchSnapshot();
+  const output = renderer.create(<MemoryRouter>
+    <StatusDropDown id='2'/>
+</MemoryRouter>  ).toJSON();
+  expect(output).toMatchSnapshot();
 });
