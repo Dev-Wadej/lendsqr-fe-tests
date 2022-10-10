@@ -1,5 +1,5 @@
-import React from 'react'
-import {useNavigate,useParams} from 'react-router-dom'
+import React,{useEffect} from 'react'
+import { useNavigate,useParams} from 'react-router-dom'
 
 import MenuIcon from '@mui/icons-material/Menu';
 import './userdetails.scss'
@@ -7,9 +7,10 @@ import './userdetails.scss'
 //=========================Custom Hooks====================================
 import {useSidebar } from '../../context/ContextProvider'
 import { useGetEachUserQuery} from'../../features/api/apiSlice'
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 //============================================================================
 
-//=========================SVG's===============   ============  ===========
+//=========================SVG's==============================================
 import {ReactComponent as ArrowBack} from '../../data/svgs/backarrow.svg'
 import {ReactComponent as StarFilled} from '../../data/svgs/starfilled.svg'
 import {ReactComponent as StarUnfilled} from '../../data/svgs/starunfilled.svg'
@@ -18,16 +19,28 @@ import {ReactComponent as StarUnfilled} from '../../data/svgs/starunfilled.svg'
 const Userdetails = () => {
 
   const{sidebar,setSidebar}=useSidebar()
-  const navigate= useNavigate()
-  const {id} = useParams()
+
+  const navigate= useNavigate() //react-router
+  const {id} = useParams() //react-router
 
   const {data}=useGetEachUserQuery(id!)
+
+  const {setState,state:userCredentials}=useLocalStorage(`user-${id}`)
+
+
+
   const handleOpenSideBar=()=>{
     setSidebar?.(true)
   }
   const handleNavigationUser=()=>{
     navigate('/dashboard/user')
   }
+   useEffect(()=>{
+     if(!userCredentials){
+       setState(data!) // storing to lacal storage
+     }
+    },[id,data,setState,userCredentials])
+  
   
   return (
     <div className='user-details-section-wrapper'>
@@ -51,11 +64,11 @@ const Userdetails = () => {
       <section className='user-details-top'>
           <aside className='user-details-avatar-wrapper'>
             <span className='avatar-img'> 
-            <img src={data?.profile.avatar} alt="User Avatar" />
+            <img src={userCredentials?.profile?.avatar} alt="User Avatar" />
             </span>
             <div>
-              <h4>{data?.profile.firstName} {data?.profile.lastName}</h4>
-              <span>{data?.accountNumber}</span>
+              <h4>{userCredentials?.profile?.firstName} {userCredentials?.profile?.lastName}</h4>
+              <span>{userCredentials?.accountNumber}</span>
             </div>
           </aside>
           <aside className='user-tier'>
@@ -86,23 +99,23 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>full Name</div>
-            <div>{data?.profile.firstName} {data?.profile.lastName}</div>
+            <div>{userCredentials?.profile?.firstName} {userCredentials?.profile?.lastName}</div>
           </dl>
           <dl>
             <div className='user-name'>Phone Number</div>
-            <div>{data?.profile.phoneNumber}</div>
+            <div>{userCredentials?.profile?.phoneNumber}</div>
           </dl>
           <dl>
             <div className='user-name'>Email Address</div>
-            <div>{data?.email}</div>
+            <div>{userCredentials?.email}</div>
           </dl>
           <dl>
             <div className='user-name'>Bvn</div>
-            <div>{data?.profile.bvn}</div>
+            <div>{userCredentials?.profile?.bvn}</div>
           </dl>
           <dl>
             <div className='user-name'>Gender</div>
-            <div>{data?.profile.gender}</div>
+            <div>{userCredentials?.profile?.gender}</div>
           </dl>
           <dl>
             <div className='user-name'>Marital status</div>
@@ -124,31 +137,31 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>level of education</div>
-            <div>{data?.education.level}</div>
+            <div>{userCredentials?.education?.level}</div>
           </dl>
           <dl>
             <div className='user-name'>employment status</div>
-            <div>{data?.education.employmentStatus}</div>
+            <div>{userCredentials?.education?.employmentStatus}</div>
           </dl>
           <dl>
             <div className='user-name'>sector of employment</div>
-            <div>{data?.education.sector}</div>
+            <div>{userCredentials?.education?.sector}</div>
           </dl>
           <dl>
             <div className='user-name'>Duration of employment</div>
-            <div>{data?.education.duration}</div>
+            <div>{userCredentials?.education?.duration}</div>
           </dl>
           <dl>
             <div className='user-name'>office email</div>
-            <div>{data?.education.officeEmail}</div>
+            <div>{userCredentials?.education?.officeEmail}</div>
           </dl>
           <dl>
             <div className='user-name'>Monthly income </div>
-            <div>₦{data?.education.monthlyIncome[0]} - ₦{data?.education.monthlyIncome[1]} </div>
+            <div>₦{userCredentials?.education?.monthlyIncome[0]} - ₦{userCredentials?.education?.monthlyIncome[1]} </div>
           </dl>
           <dl>
             <div className='user-name'>loan repayment</div>
-            <div>{data?.education.loanRepayment}</div>
+            <div>{userCredentials?.education?.loanRepayment}</div>
           </dl>
           </div>
         </aside>
@@ -158,15 +171,15 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>Twitter</div>
-            <div>{data?.socials.twitter}</div>
+            <div>{userCredentials?.socials?.twitter}</div>
           </dl>
           <dl>
             <div className='user-name'>Facebook</div>
-            <div>{data?.socials.facebook}</div>
+            <div>{userCredentials?.socials?.facebook}</div>
           </dl>
           <dl>
             <div className='user-name'> Instagram</div>
-            <div>{data?.socials.instagram}</div>
+            <div>{userCredentials?.socials?.instagram}</div>
           </dl>
           </div>
         </aside>
@@ -176,11 +189,11 @@ const Userdetails = () => {
           <div>
           <dl>
             <div className='user-name'>full Name</div>
-            <div>{data?.guarantor.firstName} {data?.guarantor.lastName}</div>
+            <div>{userCredentials?.guarantor?.firstName} {userCredentials?.guarantor?.lastName}</div>
           </dl>
           <dl>
             <div className='user-name'>Phone Number</div>
-            <div>{data?.guarantor.phoneNumber}</div>
+            <div>{userCredentials?.guarantor?.phoneNumber}</div>
           </dl>
           <dl>
             <div className='user-name'> Email Address</div>

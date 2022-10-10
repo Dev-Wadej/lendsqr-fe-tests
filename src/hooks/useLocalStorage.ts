@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
-interface IUsersData{
-        createdAt:string;
-        orgName:string
-        email:string;
-        id:string;
-        userName:string;
-        phoneNumber:string;
-  }
+import { IEachUser } from "../types/types";
+
+
   interface ILocalStorage{
-      state: IUsersData[]
-      setState:React.Dispatch<React.SetStateAction<IUsersData[]>>
+      state: IEachUser
+      setState:React.Dispatch<React.SetStateAction<IEachUser>>
   }
 
 
-export const useLocalStorage = ( key: string, initialValue:string='user'): ILocalStorage => {
-    const [state, setState] = useState<IUsersData[]>(() => {
+export const useLocalStorage = ( key:string, initialValue:string='user'): ILocalStorage => {
+    const [state, setState] = useState<IEachUser>(() => {
       if (!initialValue) return;
         const value = localStorage.getItem(key);
         return value ? JSON.parse(value) : initialValue;
