@@ -6,7 +6,7 @@ Lendsqr is a cloud-based, lending platform designed for small and medium-sized l
 Click [Here🚀🚀](https://adeniyijoshua-lendsqr-fe-test.vercel.app/) to have a feel of the user interface
 
 ## Installation
-Clone down this repository. You will need node and npm installed globally on your machine.
+Clone down this repository. You will need node and npm installed globally on your machine to be able to have access to this.
 
 Installation:
 
