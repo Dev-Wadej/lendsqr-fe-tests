@@ -45,6 +45,15 @@
             color: rgba(33, 63, 125, 1);
             display: flex;
             justify-content: space-between;
+            @media only screen and (max-width: 600px) {
+                & {
+                    flex-direction: column;
+                    gap: 1rem;
+                    dl {
+                        justify-content: end;
+                    }
+                }
+            }
             h3 {
                 font-size: 1.28rem;
                 font-weight: 500;
@@ -58,8 +67,9 @@
                 display: flex;
                 @media only screen and (max-width: 580px) {
                     & {
-                        flex-direction: column;
+                        flex-direction: row;
                         gap: 1rem;
+                        margin: 0 auto;
                     }
                 }
                 button {

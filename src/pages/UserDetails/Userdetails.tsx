@@ -17,18 +17,16 @@ import {ReactComponent as StarUnfilled} from '../../data/svgs/starunfilled.svg'
 //============================================================================
 
 const Userdetails = () => {
+  const buttonWords = ['Documents','Bank Details','Loans','Savings','App and System']
 
   const{sidebar,setSidebar}=useSidebar()
 
   const navigate= useNavigate() //react-router
   const {id} = useParams() //react-router
-
   const {data}=useGetEachUserQuery(id!)
 
+
   const {setState,state:userCredentials}=useLocalStorage(`user-${id}`)
-
-
-
   const handleOpenSideBar=()=>{
     setSidebar?.(true)
   }
@@ -40,9 +38,46 @@ const Userdetails = () => {
        setState(data!) // storing to lacal storage
       }
     },[id,data,setState,userCredentials])
-  
-  
-  return (
+
+//-----Helper To Avoid Too much repetitoion------
+  const userdetailsinfo_1= [
+    {title:'Full name',title_details:`${userCredentials?.profile?.firstName} ${userCredentials?.profile?.lastName}`},
+    {title:'Phone Number',title_details:userCredentials?.profile?.phoneNumber},
+    {title:'Email',title_details:userCredentials?.email},
+    {title:'Bvn',title_details:userCredentials?.profile?.bvn},
+    {title:'Gender',title_details:userCredentials?.profile?.gender},
+    {title:'Marital Status',title_details:'Single'},
+    {title:'Children',title_details:'None'},
+    {title:'Type of Residence',title_details:'Parent’s Apartment'},
+  ]
+  const userdetailsinfo_2=[
+    {title:'level of education',title_details:userCredentials?.education?.level},
+    {title:'employment status',title_details:userCredentials?.education?.employmentStatus},
+    {title:'sector of employment',title_details:userCredentials?.education?.sector},
+    {title:'Duration of employment',title_details:userCredentials?.education?.duration},
+    {title:'office email',title_details:userCredentials?.education?.officeEmail},
+    {title:'Monthly income',title_details:`₦${userCredentials?.education?.monthlyIncome[0]} - ₦${userCredentials?.education?.monthlyIncome[1]}`},
+    {title:'loan repayment',title_details:userCredentials?.education?.loanRepayment},
+  ]
+  const userdetails_socials=[
+    {title:'Twitter',title_details:userCredentials?.socials?.twitter},
+    {title:'Facebook',title_details:userCredentials?.socials?.facebook},
+    {title:'Instagram',title_details:userCredentials?.socials?.instagram},
+  ]
+  const user_guarantor_info=[
+    {title:'full Name',title_details:`${userCredentials?.guarantor?.firstName} ${userCredentials?.guarantor?.lastName}`},
+    {title:'Phone Number',title_details:userCredentials?.guarantor?.phoneNumber},
+    {title:'Email Address',title_details:'debby@gmail.com'},
+    {title:'Relationship',title_details:'Sister'},
+]
+const user_guarantor_info_2=[
+  {title:'Full Name',title_details:'Debby Ogana'},
+  {title:'Phone Number',title_details:'07060780922'},
+  {title:'Email Address',title_details:'debby@gmail.com'},
+  {title:'Relationship',title_details:'Sister'},
+
+]
+   return (
     <div className='user-details-section-wrapper'>
       <div onClick={handleOpenSideBar} className='user-hamburger'>
       { !sidebar ? <MenuIcon/> : <></>}
@@ -86,149 +121,78 @@ const Userdetails = () => {
       </section>
       <section className='user-tab'>
         <button className='active'>General Details</button>
-        <button>Documents</button>
-        <button>Bank Details</button>
-        <button>Loans</button>
-        <button>Savings</button>
-        <button>App and System</button>
+        {buttonWords.map(btnword=>(
+
+        <button>{btnword}</button>
+        ))}
+       
       </section>
       </div>
       <section className='user-heavy-info'>
         <aside className='user-personal-info'>
           <h5>Personal Information</h5>
           <div>
-          <dl>
-            <div className='user-name'>full Name</div>
-            <div>{userCredentials?.profile?.firstName} {userCredentials?.profile?.lastName}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Phone Number</div>
-            <div>{userCredentials?.profile?.phoneNumber}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Email Address</div>
-            <div>{userCredentials?.email}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Bvn</div>
-            <div>{userCredentials?.profile?.bvn}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Gender</div>
-            <div>{userCredentials?.profile?.gender}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Marital status</div>
-            <div>Single</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Children</div>
-            <div>None</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Type of residence</div>
-            <div>Parent’s Apartment</div>
-          </dl>
+            {userdetailsinfo_1.map(details_for_user=>(
+              <dl>
+              <div className='user-name'>{details_for_user.title}</div>
+              <div>{details_for_user.title_details}</div>
+            </dl>
+            ))}
           </div>
         </aside>
         <hr/>
         <aside className='user-education-job'>
         <h5>Education and Employment</h5>
           <div>
-          <dl>
-            <div className='user-name'>level of education</div>
-            <div>{userCredentials?.education?.level}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>employment status</div>
-            <div>{userCredentials?.education?.employmentStatus}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>sector of employment</div>
-            <div>{userCredentials?.education?.sector}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Duration of employment</div>
-            <div>{userCredentials?.education?.duration}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>office email</div>
-            <div>{userCredentials?.education?.officeEmail}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Monthly income </div>
-            <div>₦{userCredentials?.education?.monthlyIncome[0]} - ₦{userCredentials?.education?.monthlyIncome[1]} </div>
-          </dl>
-          <dl>
-            <div className='user-name'>loan repayment</div>
-            <div>{userCredentials?.education?.loanRepayment}</div>
-          </dl>
+            {userdetailsinfo_2.map(details_of_user_2=>(
+              <dl>
+              <div className='user-name'>{details_of_user_2.title}</div>
+              <div>{details_of_user_2.title_details}</div>
+              </dl>
+            ))}
           </div>
         </aside>
         <hr/>
         <aside className='user-socials'>
         <h5>Socials</h5>
           <div>
-          <dl>
-            <div className='user-name'>Twitter</div>
-            <div>{userCredentials?.socials?.twitter}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Facebook</div>
-            <div>{userCredentials?.socials?.facebook}</div>
-          </dl>
-          <dl>
-            <div className='user-name'> Instagram</div>
-            <div>{userCredentials?.socials?.instagram}</div>
-          </dl>
+
+            {
+              userdetails_socials.map(socials=>(
+                <dl>
+                  <div className='user-name'>{socials.title}</div>
+                  <div>{socials.title_details}</div>
+                </dl>
+              ))
+            }
           </div>
         </aside>
         <hr/>
         <aside className='user-socials'>
         <h5>Guarantor</h5>
           <div>
-          <dl>
-            <div className='user-name'>full Name</div>
-            <div>{userCredentials?.guarantor?.firstName} {userCredentials?.guarantor?.lastName}</div>
-          </dl>
-          <dl>
-            <div className='user-name'>Phone Number</div>
-            <div>{userCredentials?.guarantor?.phoneNumber}</div>
-          </dl>
-          <dl>
-            <div className='user-name'> Email Address</div>
-            <div>debby@gmail.com</div>
-          </dl>
-          <dl>
-            <div className='user-name'> Relationship</div>
-            <div>Sister</div>
-          </dl>
+            {
+              user_guarantor_info.map(guarantor_info=>(
+                <dl>
+                  <div className='user-name'>{guarantor_info.title}</div>
+                  <div>{guarantor_info.title_details}</div>
+                </dl>
+              ))
+            }
           </div>
         </aside>
         <hr/>
         <aside className='user-socials'>
         <h5>&nbsp;</h5>
           <div>
+            {user_guarantor_info_2.map(guarantor_2=>(
           <dl>
-            <div className='user-name'>full Name</div>
-            <div>Debby Ogana</div>
+            <div className='user-name'>{guarantor_2.title}</div>
+            <div>{guarantor_2.title_details}</div>
           </dl>
-          <dl>
-            <div className='user-name'>Phone Number</div>
-            <div>07060780922</div>
-          </dl>
-          <dl>
-            <div className='user-name'> Email Address</div>
-            <div>debby@gmail.com</div>
-          </dl>
-          <dl>
-            <div className='user-name'> Relationship</div>
-            <div>Sister</div>
-          </dl>
+            ))}
           </div>
         </aside>
-
-        
       </section>
     </section>
     </div>

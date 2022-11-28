@@ -1,3 +1,4 @@
+import { truncate } from 'fs/promises'
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,19 +10,38 @@ const Login = () => {
 
   const navigate= useNavigate()
   const [password,setPasword]=useState('')
+  const [email,setEmail]= useState('')
   const [showPassword,setShowPassword]=useState(false)
-  
-  const hanldePasswordValue=(e: React.ChangeEvent<HTMLInputElement>)=>{
-    setPasword(e.target.value)
-  }
+  const [statusEmail,setStatusEmail]= useState(true)
+  const [statusPassword,setStatusPassword]= useState(true)
+
   const handleShowPassWord=()=>{
     setShowPassword(prev=>!prev)
   }
   const handleLogin=()=>{
-    navigate('./dashboard/user')
+    if(!email){
+      setStatusEmail(false)
+      return;
+    }
+    if(!password){
+      setStatusPassword(false)
+      return;
+    }
+    if(email && password){
+      navigate('./dashboard/user')
+    }
   }
   const handleFormSubmit=(e:React.FormEvent)=>{
     e.preventDefault()
+  }
+  const handleEmailAuth=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    setEmail(e.target.value)
+    setStatusEmail(true)
+  }
+    
+  const hanldePasswordValue=(e: React.ChangeEvent<HTMLInputElement>)=>{
+    setPasword(e.target.value)
+    setStatusPassword(true)
   }
 
   return (
@@ -37,11 +57,14 @@ const Login = () => {
           <h1>Welcome!</h1>
           <h5>Enter details to login</h5>
           <dl>
-            <input type="text" placeholder='Email' name='email' />
+            <input type="email" placeholder='Email' name='email' onChange={handleEmailAuth} />
+            {!statusEmail && <p className='email-validator'>Email is required</p>}
+
             <div className='show-password'>
             <input name='password' type={showPassword ? 'text' :'password'} placeholder='Password' onChange={hanldePasswordValue} value={password} />
             <a  href="#" onClick={handleShowPassWord}> {showPassword ? 'HIDE' : 'SHOW'} </a>
             </div>
+            {!statusPassword && <p className='password-validator'>Enter an password</p>}
             
           </dl>
           <button className='forgot-password'>FORGOT PASSWORD?</button>

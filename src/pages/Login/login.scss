@@ -15,7 +15,7 @@
                 
                 .login-page {
                     & {
-                        @media only screen and (min-width: 1800px) {
+                        @media only screen and (min-width: 1500px) {
                             & {
                                 display: grid;
                                 place-content: center;
@@ -25,9 +25,9 @@
                     }
                     font-family: 'Avenir';
                     width: 90vw;
-                    margin-left: 5vw;
+                    margin-left: 8vw;
                     aside {
-                        margin: 5rem 0 3rem 0rem;
+                        margin: 8rem 0 3rem 0rem;
                     }
                 }
                 
@@ -142,4 +142,12 @@
                         font-family: 'AvenirBold';
                         color: #39CDCC;
                     }
+                }
+                
+                .email-validator,
+                .password-validator {
+                    font-size: .8rem;
+                    color: red;
+                    margin-top: .3rem;
+                    margin-left: .3rem;
                 }

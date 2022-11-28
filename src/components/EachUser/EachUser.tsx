@@ -1,8 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {ReactComponent as StatusToggler} from '../../data/svgs/statustoggler.svg' //Svg
 import StatusDropDown from '../../components/StatusDropDown/StatusDropDown' //components
 import { IUsersData } from '../../types/types'; //Typescript
 import './EachUser.scss';
+
 
 
 
@@ -25,14 +26,17 @@ const randomStatusValue=()=>{
 
 
 interface IEachUser{
-  data:IUsersData
+  data:IUsersData;
 }
 const EachUser:React.FC<IEachUser> = ({data}) => {
 
   const [showStatusDropDown,setShowStatusDropDown]=useState(false)
   const{backgroundColor,color,title} =randomStatusValue()
-  const handleStatusToggler=()=>{
-    setShowStatusDropDown(prev=>!prev)
+ 
+  const handleStatusToggler=(id:string)=>{
+      setShowStatusDropDown(prev=>!prev)
+
+    // setShowStatusDropDown(prev=>!prev)
   }
 
   return (
@@ -61,7 +65,7 @@ const EachUser:React.FC<IEachUser> = ({data}) => {
         {data.createdAt}
         </li>
 
-        <li className='status-toggler-parent' onClick={handleStatusToggler}>
+        <li className='status-toggler-parent' onClick={()=>handleStatusToggler(data.id)}>
             <button style={{color:color,background:backgroundColor}}>{title}</button>
             <StatusToggler/>
               {showStatusDropDown &&

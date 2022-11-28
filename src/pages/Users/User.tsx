@@ -24,8 +24,18 @@ import './user.scss'
 
 const User = () => {
 
+  const dashboardFilterActions= ['ORGANIZATION','USERNAME','EMAIL','PHONE NUMBER','DATE JOINED','STATUS']
+  const boxesProperties = [
+    {name:'USERS', icon:Users, amount:'2,453'},
+    {name:'ACTIVE USERS',icon:ActiveUsers, amount:'2,453'},
+    {name:'USERS WITH LOAN', icon:UsersWithLoan, amount:'12,453'},
+    {name:'USERS WITH SAVINGS', icon:UsersWithSavings, amount:'102,453'},
+  ]
+
   const {setSidebar,sidebar,pageNo}=useSidebar()
   const [showFilterForm,setShowFilterForm]=useState(false)
+
+
   
 
   const { data, isLoading,isError } = useGetUsersQuery(true)
@@ -38,6 +48,8 @@ const User = () => {
   const handleToggleFilterForm=()=>{
     setShowFilterForm((prev)=>!prev)
   }
+
+  
   if(isLoading){
     return(
       <div>Loading</div>
@@ -56,26 +68,14 @@ const User = () => {
       </div>
       <h2>Users</h2>
       <ul className='users-box'>
-        <li>
-          <span className='user-box-icon'> <Users/></span>
-          <span className='users-box-title'>USERS</span>
-          <span className='users-box-amount'>2,453</span>
-        </li>
-        <li>
-          <span className='user-box-icon'> <ActiveUsers/></span>
-          <span className='users-box-title'>ACTIVE USERS</span>
-          <span className='users-box-amount'>2,453</span>
-        </li>
-        <li>
-          <span className='user-box-icon'> <UsersWithLoan/></span>
-          <span className='users-box-title'>USERS WITH LOANS</span>
-          <span className='users-box-amount'>12,453</span>
-        </li>
-        <li>
-          <span className='user-box-icon'> <UsersWithSavings/></span>
-          <span className='users-box-title'>USERS WITH SAVINGS</span>
-          <span className='users-box-amount'>102,453</span>
-        </li>
+          {boxesProperties.map(dataBoxesProp=>(
+            <li>
+            <span className='user-box-icon'> <dataBoxesProp.icon/></span>
+            <span className='users-box-title'>{dataBoxesProp.name}</span>
+            <span className='users-box-amount'>{dataBoxesProp.amount}</span>
+            </li>
+
+          ))}
       </ul>
       <div className='main-dashboard-wrapper'>
 
@@ -83,30 +83,12 @@ const User = () => {
         {showFilterForm &&
         <FormDropDown/>
         }
+        {dashboardFilterActions.map(callToAction=>(
           <li onClick={handleToggleFilterForm}>
-            <span>ORGANIZATION</span>
-            <span><DropDown/></span>
+          <span>{callToAction}</span>
+          <span><DropDown/></span>
           </li>
-          <li onClick={handleToggleFilterForm}>
-            <span>USERNAME</span>
-            <span><DropDown/></span>
-          </li>
-          <li onClick={handleToggleFilterForm}>
-            <span>EMAIL</span>
-            <span><DropDown/></span>
-          </li>
-          <li onClick={handleToggleFilterForm}>
-            <span>PHONE NUMBER</span>
-            <span><DropDown/></span>
-          </li>
-          <li onClick={handleToggleFilterForm}>
-            <span>DATE JOINED</span>
-            <span><DropDown/></span>
-          </li>
-          <li onClick={handleToggleFilterForm}>
-            <span>STATUS</span>
-            <span><DropDown/></span>
-          </li>
+        ))}
       </ul>
       <div className='status-down-wrapper'>
       {res?.amtPerPage?.map((eachUserDetails,idx)=>(
